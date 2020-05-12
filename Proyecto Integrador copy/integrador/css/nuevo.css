@@ -1,0 +1,136 @@
+
+
+li{
+  list-style: none;
+}
+li a {
+  text-transform: uppercase;
+
+}
+
+#generos img{
+  width: 100%;
+}
+#recomenda img{
+  width: 100%;
+}
+
+#movies img{
+  width: 100%;
+}
+
+}
+ul li a{
+  font-family: 'Cairo', sans-serif;
+  text-transform: uppercase;
+}
+h3{
+  text-align: center;
+}
+h2{
+width: 100%;
+text-align: center;
+}
+
+ h4:hover{
+transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+text-decoration: none;
+}
+h5{
+  color: yellow;
+}
+.logo{
+  float: left;
+  width: 55px;
+  height: 55px;
+  padding-top: 10px 0;
+}
+ul li{list-style: none;}
+h4{
+  font-family: 'Cairo', sans-serif;
+  text-transform: uppercase;
+}
+
+h6{
+font-family:'Cairo', sans-serif;
+text-transform: uppercase;
+}
+.carru uk-position-relative uk-visible-toggle uk-light{
+
+  width: 50%;
+}
+.buscador{
+  float: right;
+  position: absolute;
+  right: 100px;
+  top: 25px;
+}
+
+span.navbar-toggler-icon {
+
+}
+
+}
+.footer{
+  margin-top: 30px;
+}
+
+/* MEDIA QUERIE PARA IPHONE 6/7/8 */
+@media(max-width:400px){
+  #generos .col-md-3.col-5{
+    height: 400px;
+    width: 50%;
+    margin-right: 30px;
+
+
+  }
+
+  #generos .col-5 img{
+
+    width: 100%;}
+
+  #recomenda .col-md-3.col-5{
+    height: 400px;
+    width: 50%;
+    margin-right: 30px;
+
+
+  }
+
+  #recomenda .col-5 img{
+
+    width: 100%;
+  }
+
+  #movies .col-md-3.col-5 {
+    height: 400px;
+    width: 50%;
+    margin-right: 30px;
+
+
+  }
+
+  #movies .col-5 img{
+
+    width: 100%;
+  }
+  .buscador {
+      float:none;
+      position: relative;
+      right: 0;
+      top: 0;
+  }
+  .form-inline {
+    justify-content: center;
+  }
+}
+
+li a{
+  text-align:center;
+  text-transform: uppercase;
+}
+h4{
+  font-size: 15px;
+}
+h3{
+  text-align: center;}

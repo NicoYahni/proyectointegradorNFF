@@ -1,0 +1,312 @@
+@font-face {
+  src: url(fonts/barselona.ttf);
+  font-family: barca;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: grey;
+  color: white;
+}
+
+
+.peliculas{
+  float: left;
+  margin-left: 6%;
+  position: relative;
+  margin-top: 10%;
+}
+body {
+  margin: 0;
+  background-color: black;
+  font-family: monospace;
+  font-weight: 300;
+}
+
+.container {
+  width: 80%;
+  margin:0 auto;
+  height: 80px;
+}
+
+.logo{
+  float: left;
+  width: 55px;
+  height: 55px;
+  padding-top: 10px 0;
+}
+
+header {
+  background-color: white;
+
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+  margin-left: 75px;
+  padding-top: 25px;
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color:black;
+  text-transform: ;
+  font-size: 16px;
+  font-family: barca;
+}
+
+nav a:hover{
+  color: :#000;
+  text-decoration: none;
+}
+
+nav a::before{
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #000;
+
+  position: absolute;
+  top: 0;
+  width:0%;
+  transition: all ease-in-out 250ms;
+  text-decoration: none;
+}
+
+nav a:hover::before{
+  width: 100%;
+  text-decoration: none;
+}
+
+.Searchbar {
+  position: absolute;
+  top: 7%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  background:black;             acaaaaaaaaaaaaaaa
+  height: 40px;
+  border-radius: 30px;
+  padding: 9px
+
+}
+
+.Searchbar:hover > .searchtext{
+  width: 240px;
+  padding: 0 6px;
+  color: white;
+}
+
+.Searchbar:hover > .searchbtn{
+background: white;
+}
+
+.searchbtn{
+  color: #800000;
+  width: 40px;
+  height: 40px;
+  float: left;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.searchtext {
+background: none;
+border: none;
+float: left;
+outline: none;
+padding: 0;
+color: white;
+font-size: 16px;
+transition: 0.5s;
+line-height: 40px;
+width: 0;
+font-family: barca;
+}
+
+.i {
+  float: left;
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+}
+
+.logo{
+margin-top: 10px;
+
+}
+.movie h2{
+font-family: barca;
+}
+.movie h2:hover{
+transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+.mostrar{
+  display: run-in;
+}
+.ocultar{
+  display: none;
+}
+
+
+.addBtn{
+color: #DB020D;
+position: absolute;
+top: 160px;
+font-size: 40px;\
+
+}
+
+.movie a{
+  font-family: barca;
+color: #DB020D;
+}
+.movie strong{
+  font-family: barca;
+  color: #DB020D;
+}
+.movie p{
+  color: yellow;
+  font-family: barca;
+
+}
+
+.middle {
+  position: absolute;
+  top: 82%;
+  transform: translate(-50%);
+  width: 100%;
+  text-align: center;
+  left:52%;
+top: 60%;
+}
+
+.btn {
+  display: inline-block;
+  width: 90px;
+  height: 90px;
+  background:#DB2923 ;
+  margin: 10px;
+  border-radius: 30%;
+  box-shadow: 0 5px 15px -5px black;
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+
+.btn i{
+line-height: 90px;
+font-size: 26px;
+transition: 0.2s linear;
+z-index: 1;
+position: absolute;
+right: 31px;
+
+}
+
+.btn:hover i{
+  transform: scale(1.3);
+  color: #f1f1f1;
+}
+
+.btn::before{
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: #DB2923;
+  transform: rotate(45deg);
+  left: -110%
+  top: 90%
+}
+
+.btn:hover::before{
+  animation: 0.7s 1;
+  top: -10%;
+  left: -10%;
+}
+
+
+
+  .bienvenida{
+    font-family:barca;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-transform: full-width;
+    left: 2px;
+  }
+
+  .bienvenida2{
+    font-family:  'Quicksand', sans-serif;\
+    left: 300px;
+  }
+
+.GIF{
+position: absolute;
+top: 98px;
+left: 300px;
+z-index: -1;
+}
+
+.introduccion{
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  right: 300px;
+  top: 98px;
+}
+
+.footer{
+    clear: both;
+    position: fixed;
+    height: 8%;
+    margin-top: 700px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-family: barca;
+  }
+
+.nombes{
+  width: 50%;
+}
+
+.fotofooter{
+  width: 65px;
+  position: absolute;
+  top: 0px;
+  right: 5px;
+}
+.logofooter{
+  width: 4%;
+  position: absolute;
+  top: 0px;
+  left: 52%;
+}
+.titulofooter{
+  text-align: center;
+
+}
