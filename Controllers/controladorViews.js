@@ -24,6 +24,9 @@ module.exports = {
     login: function(req, res){
         res.render('login')
 
-    }
+    },
+    actoresDetalles: function(req, res){
+        res.send('Actores')
+    },
 
 }

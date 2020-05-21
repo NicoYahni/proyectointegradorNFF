@@ -16,6 +16,6 @@ router.get("/login", controller.login);
 // HTTP://localhost:3000/actoresdetalles
 
 
-router.get('/actoresdetalles', controller.actoresdetalles);
+router.get('/actoresdetalles', controller.actoresDetalles);
 
 module.exports = router;
