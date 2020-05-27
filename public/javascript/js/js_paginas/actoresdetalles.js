@@ -35,7 +35,7 @@ window.addEventListener("load",function(){
            <img src="http://image.tmdb.org/t/p/w400/${credits[i].poster_path}" onerror="this.onerror=null;this.src='../images/imageNotFound.png';">
            <h4>${credits[i].title}</h4>
 
-           <a onclick= "movieSelected('${credits[i].id}')"  class= " btn btn-primary" href="detalles.html?IdDePeliculas=${credits[i].id}"> Movie Details</a>
+           <a onclick= "movieSelected('${credits[i].id}')"  class= " btn btn-primary" href="/detalles?IdDePeliculas=${credits[i].id}"> Movie Details</a>
 
 
            </div>

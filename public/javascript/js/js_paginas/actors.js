@@ -23,7 +23,7 @@ fetch("https://api.themoviedb.org/3/person/popular?api_key=8fe7ed2a38151374ac57c
         <img src="http://image.tmdb.org/t/p/w400/${actors[i].profile_path}" onerror="this.onerror=null;this.src='../images/imageNotFound.png';">
         <h4>${actors[i].name}</h4>
 
-          <a onclick= "movieSelected('${actors[i].id}')"  class= " btn btn-primary" href="actoresdetalles.html?IdDeActores=${actors[i].id}"> Actor Details</a>
+          <a onclick= "movieSelected('${actors[i].id}')"  class= " btn btn-primary" href="actores/detalles?IdDeActores=${actors[i].id}"> Actor Details</a>
 
 
         </div>

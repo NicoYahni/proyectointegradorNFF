@@ -11,6 +11,8 @@ router.get("/actors", controller.actors);
 router.get("/generos", controller.generos);
 router.get("/favoritos", controller.favoritos);
 router.get("/login", controller.login);
+router.get("/detalles", controller.detalles);
+router.get("/buscador", controller.buscador);
 
 
 // HTTP://localhost:3000/actoresdetalles

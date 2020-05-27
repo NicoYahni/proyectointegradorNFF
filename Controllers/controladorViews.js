@@ -28,5 +28,11 @@ module.exports = {
     actoresDetalles: function(req, res){
         res.send('Actores')
     },
+    detalles: function(req, res){
+        res.render('detalles')
+    },
+    buscador: function(req, res){
+        res.render('buscador')
+    },
 
 }

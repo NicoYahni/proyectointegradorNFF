@@ -58,7 +58,7 @@ window.addEventListener("load",function(){
                <img src="http://image.tmdb.org/t/p/w400/${recomendadas[i].poster_path}" onerror="this.onerror=null;this.src='../images/imageNotFound.png';">
                <h4>${recomendadas[i].title}</h4>
 
-               <a   class= " btn btn-primary" href="detalles.html?IdDePeliculas=${recomendadas[i].id}"> Movie Details</a>
+               <a   class= " btn btn-primary" href="/detalles?IdDePeliculas=${recomendadas[i].id}"> Movie Details</a>
 
 
                </div>

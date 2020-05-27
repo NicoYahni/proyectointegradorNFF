@@ -32,7 +32,7 @@ for (var i = 0; i < arrayFavoritos.length; i++) {
           <img src="http://image.tmdb.org/t/p/w400/${favo.poster_path}" onerror="this.onerror=null;this.src='../images/imageNotFound.png';">
           <h4>${favo.title}</h4>
             <h5><span>${favo.vote_average} ` + estrellas + `</span></h5>
-            <a onclick= "movieSelected('${favo.id}')"  class= " btn btn-primary" href="detalles.html?IdDePeliculas=${favo.id}"> Movie Details</a>
+            <a onclick= "movieSelected('${favo.id}')"  class= " btn btn-primary" href="/detalles?IdDePeliculas=${favo.id}"> Movie Details</a>
 
 
           </div>
