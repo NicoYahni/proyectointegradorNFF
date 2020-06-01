@@ -8,6 +8,6 @@ const Resena = sequelize.define('resenas', {
     textoResena: Sequelize.STRING,
     puntaje: Sequelize.DECIMAL,
 },
-{timestamps:false});
+{tableName:'resenas'});
 
 module.exports = Resena;
