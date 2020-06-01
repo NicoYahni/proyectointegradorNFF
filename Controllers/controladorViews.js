@@ -1,3 +1,6 @@
+const DB = require('../database/models/usuarios');
+const OP = DB.Sequelize.Op;
+
 module.exports = {
     home: function(req, res){
         res.render('index')
@@ -35,28 +38,28 @@ module.exports = {
 
        
 
-        // var config = require('../database/config/config.js');
-        // var mysql = require('mysql');
-        // var connection = mysql.createConnection(config.databaseOptions);
+        var config = require('../database/config/config.js');
+        var mysql = require('mysql');
+        var connection = mysql.createConnection(config.databaseOptions);
        
         
-        // connection.connect();
+        connection.connect();
 
-        // connection.query('INSERT INTO usuarios (lista de campos) values (lista de valores) ', function(err, rows, fields) {
-        //   if (err) throw err;
-        //      res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
-        //      //200 porq es la peticion de ok del get
-        //  });
+        connection.query('INSERT INTO usuarios (lista de campos) values (lista de valores) ', function(err, rows, fields) {
+          if (err) throw err;
+             res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
+             //200 porq es la peticion de ok del get
+         });
 
-          //YYYY-MM-DD
-        //  connection.end();
+          YYYY-MM-DD
+         connection.end();
         res.status(201).send('Tu usuario ha sido creado satifactoriamente')
 
     },
     actoresDetalles: function(req, res){
 
 
-        var config = require('../database/config/config.js');
+        var config = require('../database/config/config');
         var mysql = require('mysql');
         var connection = mysql.createConnection(config.databaseOptions);
        

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+//const bcrypt = require('bcrypt');
+//const saltRounds = 10;
 
 const controller = require('../Controllers/controladorViews')
     
