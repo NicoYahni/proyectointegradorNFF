@@ -3,6 +3,6 @@
     database : 'proyecto-prog-II',
     user     : 'root',
     password : 'root',
-    port     : '8889'
+    port     : '3306'
 };
 module.exports = {databaseOptions: databaseOptions} 
