@@ -83,5 +83,8 @@ module.exports = {
     buscadorUsuarios: function(req, res){
         res.render('buscadorUsuarios')
     },
+    usuarioBuscado: function(req, res){
+        res.render('usuarioBuscado')
+    },
 
 }
