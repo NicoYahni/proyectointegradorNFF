@@ -12,16 +12,14 @@
     <div class="contenedor-formulario">
       <form id="frmRegistracion" class="box form-inline my-2 my-lg-0" action="/usuarios" method="post">
         <h1>Resgistrarse</h1>
-        <input class="form-control mr-sm-2" type="text" id="txtNombre" placeholder="Nombre">
-        <input type="email" id="txtEmail" placeholder="Email">
-        <input type="password" id="txtPassword" placeholder="Contraseña">
-        <input type="text" id="txtFechaNaciemiento" placeholder="Fecha de Nacimiento (dd/mm/yyyy)">
+        <input class="form-control mr-sm-2" type="text" id="txtNombre" placeholder="Nombre" name="nombreUsuario">
+        <input type="email" id="txtEmail" placeholder="Email" name="emailUsuario">
+        <input type="password" id="txtPassword" placeholder="Contraseña" name="passwordUsuario">
+        <input type="text" id="txtFechaNaciemiento" placeholder="Fecha de Nacimiento (dd/mm/yyyy)" name="fechaDeNacimientoUsuario">
         <input type="submit" placeholder="Enviar">
       </form>
     </div>
    
-
-
 
 
   </body>
@@ -49,7 +47,7 @@
 
       /* Alerts the results */
       posting.done(function( data ) {
-        alert('success');
+        alert('Tu usuario ha sido creado satifactoriamente');
       });
     });
 </script>

@@ -33,6 +33,14 @@ module.exports = {
 
         console.log(req);
 
+        const database = require('../database/models/usuarios');
+        db.Usuario.create({
+            nombre: req.body.nombreUsuario,
+            email:req.body.emailUsuario, 
+            Password:req.body.passwordUsuario,
+            fechaDeNacimiento:fechaDeNacimientoUsuario,
+        });
+
         // var config = require('../database/config/config.js');
         // var mysql = require('mysql');
         // var connection = mysql.createConnection(config.databaseOptions);
@@ -48,7 +56,7 @@ module.exports = {
 
           //YYYY-MM-DD
         //  connection.end();
-        res.status(201).send('Se creó el usuario satisfactoriamente.')
+        res.status(201).send('Tu usuario ha sido creado satifactoriamente')
 
     },
     actoresDetalles: function(req, res){
@@ -67,8 +75,6 @@ module.exports = {
           if (err) throw err;
              res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
              //200 porq es la peticion de ok del get
-
-
          });
 
          connection.end();
