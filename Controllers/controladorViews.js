@@ -33,13 +33,7 @@ module.exports = {
 
         console.log(req);
 
-        const database = require('../database/models/usuarios');
-        db.Usuario.create({
-            nombre: req.body.nombreUsuario,
-            email:req.body.emailUsuario, 
-            Password:req.body.passwordUsuario,
-            fechaDeNacimiento:fechaDeNacimientoUsuario,
-        });
+       
 
         // var config = require('../database/config/config.js');
         // var mysql = require('mysql');
