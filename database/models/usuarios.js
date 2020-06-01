@@ -7,6 +7,8 @@ const Usuario = sequelize.define('usuarios', {
     email: Sequelize.STRING,
     password: Sequelize.STRING,
     fechaNacimiento: Sequelize.DATE,
-});
+},
+{timestamps: false});
+
 
 module.exports = Usuario;

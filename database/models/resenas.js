@@ -7,8 +7,7 @@ const Resena = sequelize.define('resenas', {
     usuarioId: Sequelize.INTEGER,
     textoResena: Sequelize.STRING,
     puntaje: Sequelize.DECIMAL,
-    createdAt: Sequelize.DATE,
-    updatedAt: Sequelize.DATE,
-});
+},
+{timestamps:false});
 
 module.exports = Resena;
