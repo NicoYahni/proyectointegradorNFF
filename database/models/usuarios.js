@@ -1,6 +1,8 @@
 module.exports = (sequelize, dataTypes) => {
-// const Sequelize = require('sequelize');
-// const sequelize = require('../config/config');
+    const Sequelize = require('sequelize');
+    const config = require('../config/config');
+    
+    var sequelize = new Sequelize(config.development);
 
 const Usuario = sequelize.define('usuarios', {
     id:{
@@ -13,7 +15,7 @@ const Usuario = sequelize.define('usuarios', {
     password: dataTypes.STRING,
     fechaNacimiento: dataTypes.DATE,
 },
-{tableName: "usuarios"});
+{tableName: 'usuarios'});
 
 
 return Usuario;

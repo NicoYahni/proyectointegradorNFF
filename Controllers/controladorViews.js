@@ -32,7 +32,7 @@ module.exports = {
     registracion: function(req, res){
         res.render('registracion')
 
-    },
+    }       ,
     usuarios:{
         buscadorUsuario: function(req, res) {
             res.render('buscadorUsuario');
@@ -63,6 +63,20 @@ module.exports = {
                     })
                 })
                 
+            }, createUsuario: function(req,res){
+                console.log(req.body.nombreUsuario);
+                console.log(req.body.passwordUsuario);
+                var bcrypt = require('bcryptjs')
+                bcrypt.hash(req.body.passwordUsuario, 10, function(err, hash) {
+                    DB.usuarios.create({
+                        nombreCompleto: req.body.nombreUsuario,
+                        email:req.body.emailUsuario, 
+                        password:req.body.passwordUsuario,
+                        fechaNacimiento:req.body.fechaNacimientoUsuario,
+                    });
+                    console.log(hash);
+                });
+                res.status(201).send('') ;
             }
 
         

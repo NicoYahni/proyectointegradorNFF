@@ -15,7 +15,7 @@
         <input class="form-control mr-sm-2" type="text" id="txtNombre" placeholder="Nombre" name="nombreUsuario">
         <input type="email" id="txtEmail" placeholder="Email" name="emailUsuario">
         <input type="password" id="txtPassword" placeholder="Contraseña" name="passwordUsuario">
-        <input type="text" id="txtFechaNaciemiento" placeholder="Fecha de Nacimiento (dd/mm/yyyy)" name="fechaDeNacimientoUsuario">
+        <input type="text" id="txtFechaNacimiento" placeholder="Fecha de Nacimiento (dd/mm/yyyy)" name="fechaDeNacimientoUsuario">
         <input type="submit" placeholder="Enviar">
       </form>
     </div>
@@ -43,7 +43,9 @@
       var $form = $( this ), url = $form.attr( 'action' );
 
       /* Send the data using post with element id name and name2*/
-      var posting = $.post( url, { nombreUsuario: $('#txtNombre').val() } );
+      var posting = $.post( url, { 
+                                    nombreUsuario: $('#txtNombre').val() , emailUsuario: $('#txtEmail').val(),
+                                    passwordUsuario:$('#txtPassword').val(), fechaNacimientoUsuario: $('#txtFechaNacimiento').val() } );
 
       /* Alerts the results */
       posting.done(function( data ) {
