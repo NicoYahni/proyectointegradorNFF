@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>estas viendo el perfil del usuario <%=user.username %></h1>
+    <ul>
+        <li>Email:<%= user.email %></li>
+        <li>Fecha de Nacimiento:<%= user.birthdate %></li>
+    </ul>
+    <h2>Lista de Reseñas:</h2>
+    <% if (reviews.length > 0) { %>
+        <% for(let i=0; i < reviews.length; i++) { %>
+        <h3>Reseña de la serie <%= reviews[i].idSerie%></h3>
+        <p><%= reviews[i].text %></p>
+        <hr>
+        <% } %>
+        <% } else { %>
+            <p>No hemos encontrado reseñas escritas por este usuario</p>
+            <% } %>
+</body>
+</html>

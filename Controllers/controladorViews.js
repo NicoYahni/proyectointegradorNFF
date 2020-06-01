@@ -1,5 +1,6 @@
-const DB = require('../database/models/usuarios');
+const DB = require('../database/models');
 const OP = DB.Sequelize.Op;
+const bcryptjs = require('bcryptjs');
 
 module.exports = {
     home: function(req, res){
@@ -32,28 +33,53 @@ module.exports = {
         res.render('registracion')
 
     },
-    usuarios: function(req, res){
+    usuarios:{
+        buscadorUsuario: function(req, res) {
+            res.render('buscadorUsuario');
+        },
+        usuarioBuscado: function(req, res){
+            DB.User.findAll({
+                where:{
+                [op.or]: {
+                    email:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } ,
+                    username:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } 
 
-        console.log(req);
+                }
+            }})
+            .then(function(resultado) {
+                res.send(resultado)
+            })
+        },
+            SearchById: function(req, res){
+                DB.user.findByPk(req.params.id)
+                .then(function(usuario){
+                    DB.review.findAll({
+                        where: {
+                            idUser: usuario.id
+                        }
+                    })
+                    .then(function(reviews){
 
-       
+                    })
+                })
+                
+            }
 
-        var config = require('../database/config/config.js');
-        var mysql = require('mysql');
-        var connection = mysql.createConnection(config.databaseOptions);
-       
         
-        connection.connect();
 
-        connection.query('INSERT INTO usuarios (lista de campos) values (lista de valores) ', function(err, rows, fields) {
-          if (err) throw err;
-             res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
-             //200 porq es la peticion de ok del get
-         });
-
-          YYYY-MM-DD
-         connection.end();
-        res.status(201).send('Tu usuario ha sido creado satifactoriamente')
+    },
+    serieDetail: function(req,res) {
+            DB.review.findAll({
+                where:{
+                    idSeries:req.query.idSerie
+                }
+            })
+            .then(function(reviews){
+                res.render('serieDetails',{
+                    idSerie: req.query.idSerie,
+                    reviews: reviews
+                })
+            })
 
     },
     actoresDetalles: function(req, res){
@@ -84,9 +110,11 @@ module.exports = {
         res.render('buscador')
     },
     buscadorUsuarios: function(req, res){
+
         res.render('buscadorUsuarios')
     },
     usuarioBuscado: function(req, res){
+
         res.render('usuarioBuscado')
     },
 

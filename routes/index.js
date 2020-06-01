@@ -14,11 +14,12 @@ router.get("/generos", controller.generos);
 router.get("/favoritos", controller.favoritos);
 router.get("/login", controller.login);
 router.get("/registracion", controller.registracion);
-router.post("/usuarios", controller.usuarios);
+//router.post("/usuarios", controller.usuarios);
 router.get("/detalles", controller.detalles);
 router.get("/buscador", controller.buscador);
-router.get("/buscadorUsuarios", controller.buscadorUsuarios);
-router.get("/usuarioBuscado", controller.usuarioBuscado)
+router.get("/buscadorUsuarios", controller.usuarios.buscadorUsuario);
+router.get("/usuarioBuscado", controller.usuarios.usuarioBuscado);
+router.get("/seriesDetail", controller.serieDetail);
 
 
 
