@@ -34,8 +34,8 @@ module.exports = {
 
     },
     usuarios:{
-        buscadorUsuario: function(req, res) {
-            res.render('buscadorUsuario');
+        buscadorUsuarios: function(req, res) {
+            res.render('buscadorUsuarios');
         },
         usuarioBuscado: function(req, res){
             DB.User.findAll({
