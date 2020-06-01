@@ -15,6 +15,7 @@ router.get("/registracion", controller.registracion);
 router.post("/usuarios", controller.usuarios);
 router.get("/detalles", controller.detalles);
 router.get("/buscador", controller.buscador);
+router.get("/buscadorUsuarios", controller.buscadorUsuarios)
 
 
 // HTTP://localhost:3000/actoresdetalles
