@@ -1,26 +1,8 @@
-module.exports = {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "proyecto-prog-II",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
-  }
-}
+  var databaseOptions = {
+    host     : '127.0.0.1',
+    database : 'proyecto-prog-II',
+    user     : 'root',
+    password : 'root',
+    port     : '8889'
+};
+module.exports = {databaseOptions: databaseOptions} 

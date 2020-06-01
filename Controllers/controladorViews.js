@@ -25,27 +25,54 @@ module.exports = {
         res.render('login')
 
     },
-    actoresDetalles: function(req, res){
-        // var mysql      = require('mysql');
-        // var connection = mysql.createConnection({
-        //   host     : 'localhost',
-        //   user     : 'root',
-        //   password : ''
-        // });
+    registracion: function(req, res){
+        res.render('registracion')
 
+    },
+    usuarios: function(req, res){
+
+        console.log(req);
+
+        // var config = require('../database/config/config.js');
+        // var mysql = require('mysql');
+        // var connection = mysql.createConnection(config.databaseOptions);
+       
+        
         // connection.connect();
 
-        // connection.query('SELECT * FROM usuarios', function(err, rows, fields) {
+        // connection.query('INSERT INTO usuarios (lista de campos) values (lista de valores) ', function(err, rows, fields) {
         //   if (err) throw err;
-        //      res.send('El nombre de usuario es: ', rows[0].nombreCompleto)
+        //      res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
+        //      //200 porq es la peticion de ok del get
+        //  });
+
+          //YYYY-MM-DD
+        //  connection.end();
+        res.status(201).send('Se creó el usuario satisfactoriamente.')
+
+    },
+    actoresDetalles: function(req, res){
 
 
-        // });
+        var config = require('../database/config/config.js');
+        var mysql = require('mysql');
+        var connection = mysql.createConnection(config.databaseOptions);
+       
+        /*Comienzo la conexion a la base de datos */
+        connection.connect();
 
-        // connection.end();
+        connection.query('SELECT * FROM usuarios', function(err, rows, fields) {
+
+          /**devuelvo el nombre completo */
+          if (err) throw err;
+             res.status(200).send(rows[0].nombreCompleto) ; ///porque tiro error depreciated
+             //200 porq es la peticion de ok del get
 
 
-        res.send('[ "nombreCompleto":"juan"]"');
+         });
+
+         connection.end();
+
     },
     detalles: function(req, res){
         res.render('detalles')
