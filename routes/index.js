@@ -29,13 +29,13 @@ router.get('/actoresdetalles', controller.actoresDetalles);
 
 module.exports = router;
 
-bcrypt.hash(passwordUsuario, saltRounds, function(err, hash) {
-    const database = require('../database/models/usuarios');
-    db.Usuario.create({
-        nombre: req.body.nombreUsuario,
-        email:req.body.emailUsuario, 
-        Password:req.body.passwordUsuario,
-        fechaDeNacimiento:fechaDeNacimientoUsuario,
-    });
+// //bcrypt.hash(passwordUsuario, saltRounds, function(err, hash) {
+//     const database = require('../database/models/usuarios');
+//     db.Usuario.create({
+//         nombre: req.body.nombreUsuario,
+//         email:req.body.emailUsuario, 
+//         Password:req.body.passwordUsuario,
+// //         fechaDeNacimiento:fechaDeNacimientoUsuario,
+//     });
     
-});
+// });
