@@ -77,10 +77,40 @@ module.exports = {
                     console.log(hash);
                 });
                 res.status(201).send('') ;
-            }
+            },
+    },
+    moduloLogin: {
+        chequearUsuario: function (email) {
+            return DB.usuarios.findOne({
+                where : {
+                    email: email
+                }
+            })
+            .then( function(usuario){
+                return res.send(usuario);
+            })
 
-        
-
+        }, buscarPorEmail: function(email) {
+            return DB.usuarios.findOne({
+                where : {
+                    email:email
+                }
+            })
+            .then(resultado => {
+                return resultado
+            })
+        }, validar: function(email, pass){
+            return DB.usuarios.findOne({
+                where : {
+                    email : email,
+                    password: pass
+                },
+            })
+            .then(results => {
+                console.log(results)
+                return results;
+            })
+        }
     },
     serieDetail: function(req,res) {
             DB.review.findAll({
