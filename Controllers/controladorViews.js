@@ -1,6 +1,10 @@
-const DB = require('../database/models');
-const OP = DB.Sequelize.Op;
-const bcryptjs = require('bcryptjs');
+let DB = require('../database/models');
+let OP = DB.Sequelize.Op;
+let bcryptjs = require('bcryptjs');
+let moduloLogin = require('../modulo-login');
+
+
+
 
 module.exports = {
     home: function(req, res){
@@ -27,7 +31,29 @@ module.exports = {
     },
     login: function(req, res){
         res.render('login')
+    },
+    validarUsuarioPassword: function (req, res){
+        // const controladorLogin = require('./controladorLogin');
 
+        // let retorno= controladorLogin.chequearUsuario(req.query.email);
+      
+        // res.status(200).send(retorno);
+
+        moduloLogin.validar(req.body.email,req.body.password)
+                    .then(
+                        resultado => {
+
+                           if(resultado == undefined){
+                               res.redirect('/login');
+                           }else{
+                               res.redirect('/'+resultado.id);
+                           }
+
+                        }
+                    );
+        
+
+        
     },
     registracion: function(req, res){
         res.render('registracion')
@@ -80,17 +106,7 @@ module.exports = {
             },
     },
     moduloLogin: {
-        chequearUsuario: function (email) {
-            return DB.usuarios.findOne({
-                where : {
-                    email: email
-                }
-            })
-            .then( function(usuario){
-                return res.send(usuario);
-            })
-
-        }, buscarPorEmail: function(email) {
+        buscarPorEmail: function(email) {
             return DB.usuarios.findOne({
                 where : {
                     email:email
@@ -160,6 +176,12 @@ module.exports = {
     usuarioBuscado: function(req, res){
 
         res.render('usuarioBuscado')
+    },
+
+    confirmUser: function(req, res){
+
+
+        res.render('confirmUser')
     },
 
 }

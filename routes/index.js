@@ -13,6 +13,7 @@ router.get("/actors", controller.actors);
 router.get("/generos", controller.generos);
 router.get("/favoritos", controller.favoritos);
 router.get("/login", controller.login);
+router.get("/validarUsuarioPassword", controller.validarUsuarioPassword);
 router.get("/registracion", controller.registracion);
 router.post("/usuarios", controller.usuarios.createUsuario);
 router.get("/detalles", controller.detalles);
