@@ -35,9 +35,6 @@ module.exports = {
         res.render('registracion')
 
     },
-    home: function (req, res) {
-        res.render('home')
-    },
     chequearQueCoincidaMail: function (req, res) {
         moduloLogin.chequearUsuario(req.body.email)
         .then(resultado => {
