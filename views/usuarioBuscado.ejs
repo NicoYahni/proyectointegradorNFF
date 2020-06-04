@@ -4,12 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuario Buscado</title>
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/bootstrapnuevo.css">
+<link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
-    <h1>son los usuarios buscados</h1> 
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/"><img src="/images/food.png" alt="logo" class="logo" style  ></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/popular">Popular</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/upcoming">Upcoming</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/actors">Popular Actors</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/generos">Genres</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/favoritos">Favorites</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Log In</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link login" href="/registracion">Registrarse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link login" href="/buscadorUsuarios">User Search</a>
+                </li>
+              </ul>
+              <ul>
+                  <li class="li">
+          <form class="buscador form-inline my-2 my-lg-0" action="/buscador" method="get">
+            <input class=" form-control mr-sm-2" type="search" name="buscador" placeholder="Type to search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <a class="searchbtn"href="#"></a>
+            <i class="fas fa-search"></i>
+          </form>
+                  </li>
+          </ul>
+          
+        </div>
+    <h1>Usuarios buscados:</h1> 
     <% if (users.length > 0) { %>
     <% for(let i=0; i < users.length; i++) { %>
-    <h3><a href="/nombre de la vista"><%= users[i].username %></a></h3>
+    <h3><a href="/userDetail/<%= users[i].id %>"><%= users[i].nombreCompleto %></a></h3>
     <h4>Email: <%= users[i].email %></h4>
     <hr>
     <% } %>
@@ -17,6 +70,17 @@
         <p>No hemos encontrado usuarios con esa busqueda</p>
         <% } %>
     
-
+        <footer class="footer">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"><img src="/images/download.png" alt="logo" class="logo" style  ></th>
+                  <th scope="col">Federico D'Avola</th>
+                  <th scope="col">Nicolas Yahni</th>
+                  <th scope="col">Felix Galperin</th>
+                </tr>
+              </thead>
+          
+          </footer>
 </body>
 </html>

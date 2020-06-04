@@ -18,7 +18,7 @@ router.post("/usuarios", controller.usuarios.createUsuario);
 router.get("/detalles", controller.detalles);
 router.get("/buscador", controller.buscador);
 router.get("/buscadorUsuarios", controller.usuarios.buscadorUsuarios);
-router.get("/usuarioBuscado", controller.usuarios.usuarioBuscado);
+router.post("/usuarioBuscado", controller.usuarios.usuarioBuscado);
 router.get("/seriesDetail", controller.serieDetail);
 router.post("/detalles", controller.chequearQueCoincidaMail);
 
