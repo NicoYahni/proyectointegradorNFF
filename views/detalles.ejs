@@ -73,12 +73,38 @@
 
 
 </div>
+
+<form action="/detalles"  method="post">
+  <input type="email" name="email" placeholder="Email">
+  <input type="password" name="clave" placeholder="Contraseña">
+  <input type="text" name="peliculaId" placeholder="" value="<%= peliculaId %> ">
+  <select class="" name="puntaje">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+<textarea name="textoResena" rows="8" cols="80" placeholder="Ingrese su Reseña"></textarea>
+<button type="submit">Enviar</button>
+</form>
+
+
+
+
+
 <footer class="footer">
   <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col"><img src="/images/download.png" alt="logo" class="logo" style  ></th>
-        <th scope="col">Benjamin Rosauer</th>
+        <th scope="col">Federico Davola</th>
         <th scope="col">Nicolas Yahni</th>
         <th scope="col">Felix Galperin</th>
       </tr>

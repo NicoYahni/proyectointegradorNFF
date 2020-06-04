@@ -20,6 +20,7 @@ router.get("/buscador", controller.buscador);
 router.get("/buscadorUsuarios", controller.usuarios.buscadorUsuarios);
 router.get("/usuarioBuscado", controller.usuarios.usuarioBuscado);
 router.get("/seriesDetail", controller.serieDetail);
+router.post("/detalles", controller.chequearQueCoincidaMail);
 
 
 

@@ -1,6 +1,8 @@
 const DB = require('../database/models');
 const OP = DB.Sequelize.Op;
 const bcryptjs = require('bcryptjs');
+let moduloLogin = require('../modulo-login');
+
 
 module.exports = {
     home: function(req, res){
@@ -32,7 +34,36 @@ module.exports = {
     registracion: function(req, res){
         res.render('registracion')
 
-    }       ,
+    },
+    home: function (req, res) {
+        res.render('home')
+    },
+    chequearQueCoincidaMail: function (req, res) {
+        moduloLogin.chequearUsuario(req.body.email)
+        .then(resultado => {
+            // return res.send('El resultado es: ' + resultado)
+            if (resultado) {
+                
+                moduloLogin.validar(req.body.email, req.body.clave)
+                .then(function (usuario) {
+                    if(usuario == false){
+                        console.log('No validaron los datos')
+                    }
+                    else{
+                        DB.resenas.create({
+                            peliculaId: req.body.peliculaId,
+                            textoResena:req.body.textoResena, 
+                            puntaje:req.body.puntaje,
+                            usuarioId: usuario.id,
+                        })
+                        res.redirect('/detalles')
+                    }
+                })
+                
+            }
+        })
+    },
+
     usuarios:{
         buscadorUsuarios: function(req, res) {
             res.render('buscadorUsuarios');
@@ -79,39 +110,7 @@ module.exports = {
                 res.status(201).send('') ;
             },
     },
-    moduloLogin: {
-        chequearUsuario: function (email) {
-            return DB.usuarios.findOne({
-                where : {
-                    email: email
-                }
-            })
-            .then( function(usuario){
-                return res.send(usuario);
-            })
-
-        }, buscarPorEmail: function(email) {
-            return DB.usuarios.findOne({
-                where : {
-                    email:email
-                }
-            })
-            .then(resultado => {
-                return resultado
-            })
-        }, validar: function(email, pass){
-            return DB.usuarios.findOne({
-                where : {
-                    email : email,
-                    password: pass
-                },
-            })
-            .then(results => {
-                console.log(results)
-                return results;
-            })
-        }
-    },
+  
     serieDetail: function(req,res) {
             DB.review.findAll({
                 where:{
@@ -148,7 +147,9 @@ module.exports = {
 
     },
     detalles: function(req, res){
-        res.render('detalles')
+        res.render('detalles', {
+            peliculaId: req.query.IdDePeliculas,
+        })
     },
     buscador: function(req, res){
         res.render('buscador')
