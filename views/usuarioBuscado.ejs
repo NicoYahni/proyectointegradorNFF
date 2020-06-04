@@ -6,10 +6,10 @@
     <title>Usuario Buscado</title>
 </head>
 <body>
-    <h1>son los usuarios buscados</h1> 
+    <h1>Usuarios buscados:</h1> 
     <% if (users.length > 0) { %>
     <% for(let i=0; i < users.length; i++) { %>
-    <h3><a href="/nombre de la vista"><%= users[i].username %></a></h3>
+    <h3><a href="/userDetail/<%= users[i].id %>"><%= users[i].nombreCompleto %></a></h3>
     <h4>Email: <%= users[i].email %></h4>
     <hr>
     <% } %>

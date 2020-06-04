@@ -21,7 +21,7 @@ fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=8fe7ed2a38151374ac5
         <div class="well text-center">
 
 
-            <h4 > <a href='tiposdegeneros.html?idDeGenero=${genero[i].id}&genero=${genero[i].name}'> ${genero[i].name} </a></h4>
+            <h4 > <a href='/tiposdegeneros?idDeGenero=${genero[i].id}&genero=${genero[i].name}'> ${genero[i].name} </a></h4>
 
 
 

@@ -1,5 +1,5 @@
 const DB = require('../database/models');
-const OP = DB.Sequelize.Op;
+const op = DB.Sequelize.Op;
 const bcryptjs = require('bcryptjs');
 
 module.exports = {
@@ -38,20 +38,23 @@ module.exports = {
             res.render('buscadorUsuarios');
         },
         usuarioBuscado: function(req, res){
-            DB.User.findAll({
+            DB.usuarios.findAll({
                 where:{
                 [op.or]: {
-                    email:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } ,
-                    username:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } 
+                    email:{[op.like]: "%"+ req.body.buscadorUsuario +"%" } ,
+                    nombreCompleto:{[op.like]: "%"+ req.body.buscadorUsuario +"%" } 
 
                 }
             }})
             .then(function(resultado) {
-                res.send(resultado)
+                res.render('usuarioBuscado', {
+                    users: resultado
+                })
             })
+            .catch(e => console.log(e))
         },
             SearchById: function(req, res){
-                DB.user.findByPk(req.params.id)
+                DB.usuarios.findByPk(req.params.id)
                 .then(function(usuario){
                     DB.review.findAll({
                         where: {
@@ -160,6 +163,25 @@ module.exports = {
     usuarioBuscado: function(req, res){
 
         res.render('usuarioBuscado')
+    },
+    tiposdegeneros: function(req, res) {
+        res.render('tiposdegeneros')
+    },
+    userDetail: function(req, res) {
+        DB.usuarios.findByPk(req.params.id)
+                .then(function(usuario){
+                    DB.resenas.findAll({
+                        where: {
+                            usuarioId: usuario.id
+                        }
+                    })
+                    .then(function(reviews){
+                        res.render("userDetail", {
+                            usuario: usuario,
+                            reviews: reviews
+                        })
+                    })
+                })
     },
 
 }
