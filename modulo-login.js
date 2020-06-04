@@ -32,7 +32,13 @@ let moduloLogin = {
             },
         })
         .then(results=>{
-            return results;
+            let check = bcrypt.compareSync (pass, results.password);
+            if(check){
+                return results;
+            }
+            else{
+                return false
+            }
         })
     }
 }
