@@ -28,7 +28,7 @@ router.get("/userDetail/:id", controller.userDetail);
 // HTTP://localhost:3000/actoresdetalles
 
 
-router.get('/actoresdetalles', controller.actoresDetalles);
+router.get('/actorDetail', controller.actorDetail);
 
 module.exports = router;
 

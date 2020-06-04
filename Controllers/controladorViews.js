@@ -184,5 +184,8 @@ module.exports = {
                     })
                 })
     },
+    actorDetail: function(req, res) {
+        res.render('actoresdetalles')
+    }
 
 }
