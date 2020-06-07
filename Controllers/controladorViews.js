@@ -229,7 +229,13 @@ module.exports = {
     },
     actorDetail: function(req, res) {
         res.render('actoresdetalles')
-    }
+    },
+    resenasMejores: function(req, res) {
+        res.render('resenasMejores')
+    },
+    resenasPeores: function(req, res) {
+        res.render('resenasPeores')
+    },
 
     confirmUser: function(req, res){
 

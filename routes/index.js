@@ -24,6 +24,8 @@ router.get("/seriesDetail", controller.serieDetail);
 router.post("/detalles", controller.chequearQueCoincidaMail);
 router.get("/tiposdegeneros", controller.tiposdegeneros);
 router.get("/userDetail/:id", controller.userDetail);
+router.get("/resenasMejores", controller.resenasMejores);
+router.get("/resenasPeores", controller.resenasPeores);
 
 
 // HTTP://localhost:3000/actoresdetalles
