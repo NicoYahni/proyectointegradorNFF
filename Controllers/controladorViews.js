@@ -1,6 +1,6 @@
 let DB = require('../database/models');
 let OP = DB.Sequelize.Op;
-let bcryptjs = require('bcryptjs');
+let bcryptjs = require('bcryptjs')
 let moduloLogin = require('../modulo-login');
 
 
@@ -33,20 +33,19 @@ module.exports = {
         res.render('login')
     },
     validarUsuarioPassword: function (req, res){
-        // const controladorLogin = require('./controladorLogin');
-
-        // let retorno= controladorLogin.chequearUsuario(req.query.email);
+   
       
-        // res.status(200).send(retorno);
-
-        moduloLogin.validar(req.body.email,req.body.password)
+        moduloLogin.validar(req.body.email,req.body.password) 
                     .then(
                         resultado => {
 
+                                         
                            if(resultado == undefined){
                                res.redirect('/login');
                            }else{
-                               res.redirect('/'+resultado.id);
+                               console.log('Objeto Usuario:');
+                               console.log(resultado.dataValues);
+                               res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto});
                            }
 
                         }
@@ -64,20 +63,23 @@ module.exports = {
             res.render('buscadorUsuarios');
         },
         usuarioBuscado: function(req, res){
-            DB.User.findAll({
+            DB.usuarios.findAll({
                 where:{
                 [op.or]: {
-                    email:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } ,
-                    username:{[op.like]: "%"+ req.query.buscadorUsuario +"%" } 
+                    email:{[op.like]: "%"+ req.body.buscadorUsuario +"%" } ,
+                    nombreCompleto:{[op.like]: "%"+ req.body.buscadorUsuario +"%" } 
 
                 }
             }})
             .then(function(resultado) {
-                res.send(resultado)
+                res.render('usuarioBuscado', {
+                    users: resultado
+                })
             })
+            .catch(e => console.log(e))
         },
             SearchById: function(req, res){
-                DB.user.findByPk(req.params.id)
+                DB.usuarios.findByPk(req.params.id)
                 .then(function(usuario){
                     DB.review.findAll({
                         where: {
@@ -90,19 +92,20 @@ module.exports = {
                 })
                 
             }, createUsuario: function(req,res){
-                console.log(req.body.nombreUsuario);
-                console.log(req.body.passwordUsuario);
-                var bcrypt = require('bcryptjs')
-                bcrypt.hash(req.body.passwordUsuario, 10, function(err, hash) {
-                    DB.usuarios.create({
-                        nombreCompleto: req.body.nombreUsuario,
-                        email:req.body.emailUsuario, 
-                        password:req.body.passwordUsuario,
-                        fechaNacimiento:req.body.fechaNacimientoUsuario,
-                    });
-                    console.log(hash);
-                });
-                res.status(201).send('') ;
+                //return res.send(req.body)
+                
+                let passHash = bcryptjs.hashSync(req.body.passwordUsuario, 10) 
+            
+                DB.usuarios.create({
+                    nombreCompleto: req.body.nombreUsuario,
+                    email:req.body.emailUsuario, 
+                    password:passHash,
+                    fechaNacimiento: req.body.fechaDeNacimientoUsuario,
+                })
+                .then(function (usuarioCreado) {
+                    return res.redirect('/')
+                })
+               
             },
     },
     moduloLogin: {
@@ -176,6 +179,25 @@ module.exports = {
     usuarioBuscado: function(req, res){
 
         res.render('usuarioBuscado')
+    },
+    tiposdegeneros: function(req, res) {
+        res.render('tiposdegeneros')
+    },
+    userDetail: function(req, res) {
+        DB.usuarios.findByPk(req.params.id)
+                .then(function(usuario){
+                    DB.resenas.findAll({
+                        where: {
+                            usuarioId: usuario.id
+                        }
+                    })
+                    .then(function(reviews){
+                        res.render("userDetail", {
+                            usuario: usuario,
+                            reviews: reviews
+                        })
+                    })
+                })
     },
 
     confirmUser: function(req, res){

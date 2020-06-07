@@ -6,16 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>estas viendo el perfil del usuario <%=user.username %></h1>
+    <h1>estas viendo el perfil del usuario <%= usuario.nombreCompleto %></h1>
     <ul>
-        <li>Email:<%= user.email %></li>
-        <li>Fecha de Nacimiento:<%= user.birthdate %></li>
+        <li>Email:<%= usuario.email %></li>
+        <li>Fecha de Nacimiento:<%= usuario.fechaNacimiento %></li>
     </ul>
     <h2>Lista de Reseñas:</h2>
+    <hr>
     <% if (reviews.length > 0) { %>
         <% for(let i=0; i < reviews.length; i++) { %>
-        <h3>Reseña de la serie <%= reviews[i].idSerie%></h3>
-        <p><%= reviews[i].text %></p>
+        <h3>Reseña de la pelicula <%= reviews[i].peliculaId%></h3>
+        <p><%= reviews[i].textoResena %></p>
         <hr>
         <% } %>
         <% } else { %>

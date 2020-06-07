@@ -13,14 +13,16 @@ router.get("/actors", controller.actors);
 router.get("/generos", controller.generos);
 router.get("/favoritos", controller.favoritos);
 router.get("/login", controller.login);
-router.get("/validarUsuarioPassword", controller.validarUsuarioPassword);
+router.post("/validarUsuarioPassword", controller.validarUsuarioPassword);
 router.get("/registracion", controller.registracion);
 router.post("/usuarios", controller.usuarios.createUsuario);
 router.get("/detalles", controller.detalles);
 router.get("/buscador", controller.buscador);
 router.get("/buscadorUsuarios", controller.usuarios.buscadorUsuarios);
-router.get("/usuarioBuscado", controller.usuarios.usuarioBuscado);
-router.get("/seriesDetail", controller.serieDetail);
+router.post("/usuarioBuscado", controller.usuarios.usuarioBuscado);
+router.get("/seriesDetail", controller.serieDetail);                                 
+router.get("/tiposdegeneros", controller.tiposdegeneros)
+router.get("/userDetail/:id", controller.userDetail)
 
 
 

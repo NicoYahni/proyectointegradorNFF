@@ -28,17 +28,19 @@ validar: function (email, pass) {
     return db.usuarios.findOne({
         where:{
             email:email,
-            password: pass
+            //password: pass
         },
     })
     .then(results=>{
         if (results != null){
+            console.log(results);
             let chequeo = bcrypt.compareSync(pass, results.password)
             if (chequeo) {
-                return results;
-            }else {
-                return undefined
-            }
+                return results;       
+             }else {
+                 return undefined
+             }
+           
         }else{
             return undefined
         }

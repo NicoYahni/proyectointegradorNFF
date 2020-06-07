@@ -28,7 +28,7 @@ form.box{
   margin: 0;
 }
 
-.box input[type = "text"], .box input[type = "Email"]{
+.box input[type = "text"], .box input[type = "Email"], .box input[type = "password"]{
   border: 0;
   background: none;
   display: block;
@@ -52,7 +52,7 @@ border-color: #DB020D;
   border: 0;
   background: none;
   display: block;
-  margin: 20px auto;
+  margin: 35px auto;
   text-align: center;
   border: 2px solid #DB020D;
   padding: 14px 40px;
@@ -67,21 +67,24 @@ border-color: #DB020D;
   background:  #DB020D;
 }
 
-.Me{
+.Men{
   position: absolute;
   left: 232px;
-  background-color: white;
+  color: #95a5a6;
+  
   font-family: sans-serif;
 }
 .Wom{
   position: absolute;
   left: 232px;
-  background-color: white;
+  color: #95a5a6;
+ 
 }
 .Ot{
   position: absolute;
   left: 232px;
-  background-color: white;
+  color: #95a5a6;
+ 
 }
 
 .contenido-bloqueado {
@@ -100,7 +103,7 @@ body {
   flex-direction: row;
 }
 div.contenedor-formulario {
-  width: 35%;
+  width: 40%;
 }
 
 .contenido-bloqueado.dos{
