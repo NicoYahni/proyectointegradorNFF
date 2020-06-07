@@ -109,4 +109,5 @@ div.contenedor-formulario {
 .contenido-bloqueado.dos{
   position: absolute;
   left: 68%;
+  display: block;
 }

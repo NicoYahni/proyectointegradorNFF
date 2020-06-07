@@ -8,7 +8,10 @@ let moduloLogin = require('../modulo-login');
 
 module.exports = {
     home: function(req, res){
-        res.render('index')
+        res.render('index', {
+            nombreCompleto: '',
+            logeado: false
+        })
     },
     popular: function(req, res){
             res.render('popular')
@@ -30,7 +33,8 @@ module.exports = {
 
     },
     login: function(req, res){
-        res.render('login')
+        res.render('login', {invalido: false});
+        
     },
     validarUsuarioPassword: function (req, res){
    
@@ -38,14 +42,14 @@ module.exports = {
         moduloLogin.validar(req.body.email,req.body.password) 
                     .then(
                         resultado => {
-
-                                         
+    
                            if(resultado == undefined){
-                               res.redirect('/login');
+                               res.render('login', {invalido: true});
+                            //    res.redirect('/login');
                            }else{
                                console.log('Objeto Usuario:');
                                console.log(resultado.dataValues);
-                               res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto});
+                               res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto, logeado: true});
                            }
 
                         }
@@ -76,7 +80,7 @@ module.exports = {
                             puntaje:req.body.puntaje,
                             usuarioId: usuario.id,
                         })
-                        res.redirect('/detalles')
+                        res.redirect('/login')
                     }
                 })
                 
@@ -129,7 +133,7 @@ module.exports = {
                     fechaNacimiento: req.body.fechaDeNacimientoUsuario,
                 })
                 .then(function (usuarioCreado) {
-                    return res.redirect('/')
+                    return res.redirect('/login')
                 })
                
             },
@@ -237,10 +241,6 @@ module.exports = {
         res.render('resenasPeores')
     },
 
-    confirmUser: function(req, res){
-
-
-        res.render('confirmUser')
-    },
+  
 
 }

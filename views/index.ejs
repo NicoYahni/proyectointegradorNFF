@@ -40,12 +40,15 @@
       <li class="nav-item">
         <a class="nav-link" href="/favoritos">Favorites</a>
       </li>
+      <% if (!logeado){
+      %> 
       <li class="nav-item">
         <a class="nav-link login" href="/login">Log In</a>
       </li>
       <li class="nav-item">
         <a class="nav-link login" href="/registracion">Registrarse</a>
       </li>
+      <%}%>
       <li class="nav-item">
         <a class="nav-link login" href="/buscadorUsuarios">User Search</a>
       </li>
@@ -53,18 +56,12 @@
         <a class="nav-link login" href="/misResenas">Mis Reseñas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link login" href="/resenasMejores">Mejores Reseñas</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link login" href="/resenasPeores">Peores Reseñas</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link logeado"></a>
       </li>
 
       <li class="li">
         <form class="buscador form-inline my-2 my-lg-0 navbar-form  " action="/buscador" method="get">
-          <% if (nombreCompleto) { %>
+          <% if (nombreCompleto != undefined)  { %>
             <span class="mr-sm-3">Bienvenido! <%= nombreCompleto %></span>
           <% } %>
           <input class=" form-control mr-sm-2" type="search" name="buscador" placeholder="Type to search">

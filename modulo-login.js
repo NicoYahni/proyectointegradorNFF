@@ -38,11 +38,12 @@ validar: function (email, pass) {
             if (chequeo) {
                 return results;       
              }else {
-                 return undefined
+                 return undefined;
              }
            
         }else{
-            return undefined
+            return undefined;
+
         }
     
         })
