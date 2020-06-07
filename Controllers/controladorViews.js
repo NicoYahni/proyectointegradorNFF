@@ -57,7 +57,33 @@ module.exports = {
     registracion: function(req, res){
         res.render('registracion')
 
-    }       ,
+    },
+    chequearQueCoincidaMail: function (req, res) {
+        moduloLogin.chequearUsuario(req.body.email)
+        .then(resultado => {
+            // return res.send('El resultado es: ' + resultado)
+            if (resultado) {
+                
+                moduloLogin.validar(req.body.email, req.body.clave)
+                .then(function (usuario) {
+                    if(usuario == false){
+                        console.log('No validaron los datos')
+                    }
+                    else{
+                        DB.resenas.create({
+                            peliculaId: req.body.peliculaId,
+                            textoResena:req.body.textoResena, 
+                            puntaje:req.body.puntaje,
+                            usuarioId: usuario.id,
+                        })
+                        res.redirect('/detalles')
+                    }
+                })
+                
+            }
+        })
+    },
+
     usuarios:{
         buscadorUsuarios: function(req, res) {
             res.render('buscadorUsuarios');
@@ -167,7 +193,9 @@ module.exports = {
 
     },
     detalles: function(req, res){
-        res.render('detalles')
+        res.render('detalles', {
+            peliculaId: req.query.IdDePeliculas,
+        })
     },
     buscador: function(req, res){
         res.render('buscador')
@@ -199,6 +227,9 @@ module.exports = {
                     })
                 })
     },
+    actorDetail: function(req, res) {
+        res.render('actoresdetalles')
+    }
 
     confirmUser: function(req, res){
 

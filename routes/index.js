@@ -20,16 +20,16 @@ router.get("/detalles", controller.detalles);
 router.get("/buscador", controller.buscador);
 router.get("/buscadorUsuarios", controller.usuarios.buscadorUsuarios);
 router.post("/usuarioBuscado", controller.usuarios.usuarioBuscado);
-router.get("/seriesDetail", controller.serieDetail);                                 
-router.get("/tiposdegeneros", controller.tiposdegeneros)
-router.get("/userDetail/:id", controller.userDetail)
-
+router.get("/seriesDetail", controller.serieDetail);
+router.post("/detalles", controller.chequearQueCoincidaMail);
+router.get("/tiposdegeneros", controller.tiposdegeneros);
+router.get("/userDetail/:id", controller.userDetail);
 
 
 // HTTP://localhost:3000/actoresdetalles
 
 
-router.get('/actoresdetalles', controller.actoresDetalles);
+router.get('/actorDetail', controller.actorDetail);
 
 module.exports = router;
 
