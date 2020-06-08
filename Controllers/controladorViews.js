@@ -1,5 +1,5 @@
 let DB = require('../database/models');
-let OP = DB.Sequelize.Op;
+let op = DB.Sequelize.Op;
 let bcryptjs = require('bcryptjs')
 let moduloLogin = require('../modulo-login');
 
