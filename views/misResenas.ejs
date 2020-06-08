@@ -79,9 +79,7 @@
         <% for(let i=0; i < reviews.length; i++) { %>
         <h3>Reseña de la pelicula <%= reviews[i].peliculaId%></h3>
         <p><%= reviews[i].textoResena %></p>
-        <form action="" method="GET">
-            <button type="submit">Borrar</button>
-        </form>
+        <a href="/borrarResena"></a>
         <a href="/editarResena">
             <button>Editar</button>
         </a>

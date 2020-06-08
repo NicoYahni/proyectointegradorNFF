@@ -293,14 +293,25 @@ module.exports = {
         
     },
     borrarResena: function(req, res){
-            DB.Resena.destroy({
-                where: {
-                    id: req.params.peliculaId
-                }
-            })
-            res.redirect("/misResenas");
+        res.render('login', { tipo: "delete", deleteId: req.params.id})
+           
+        
     },
-    confirmUser: function(req, res){
+    confirmDelete: function(req, res){
+        moduloLogin.validar(req.body.email, req.body.password)
+        .then(resultado =>{
+            if (resultado != null) {
+                DB.Resena.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                })
+                res.redirect('/misResenas')
+            }else{
+                res.redirect('/borrarResena/' + req.params.id)
+            }
+        })
+    },
 
 }
-}
+
