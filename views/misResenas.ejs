@@ -67,6 +67,7 @@
         </form>
       </li>
     </ul>
+    
     <h1>Perfil de: <%= usuario.nombreCompleto %></h1>
     <ul>
         <li>Email:<%= usuario.email %></li>
@@ -78,7 +79,7 @@
         <% for(let i=0; i < reviews.length; i++) { %>
         <h3>Reseña de la pelicula <%= reviews[i].peliculaId%></h3>
         <p><%= reviews[i].textoResena %></p>
-        <form action="" method="POST">
+        <form action="" method="GET">
             <button type="submit">Borrar</button>
         </form>
         <a href="/editarResena">

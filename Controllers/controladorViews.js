@@ -50,14 +50,17 @@ module.exports = {
                                console.log('Objeto Usuario:');
                                console.log(resultado.dataValues);
                                
-                               DB.reviews.findAll({
+                               DB.resenas.findAll({
                                 where:{
-                                    idUser: resultado.id
+                                    id: resultado.id
                                 }
-                               }
+                               })
                                .then(function(reviews){
-                                res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto});
-                               }))
+                                res.render('misResenas',{nombreCompleto:resultado.dataValues.nombreCompleto,
+                                    usuario:resultado,
+                                    reviews:reviews
+                                });
+                               })
                            }
 
                         }
@@ -263,24 +266,41 @@ module.exports = {
                         })
                     })
                 })
+                DB.resenas.findAll({
+                    where:{
+                        id: resultado.id
+                    }
+                   })
+                   .then(function(reviews){
+                    res.render('misResenas',{nombreCompleto:resultado.dataValues.nombreCompleto,usuario:resultado,reviews:reviews});
+                   })
     },
     editarResena: function(req, res) {
-        let pedidoPelicula = db.Pelicula.findByPk(req.params.id);
+        DB.resenas.findAll({
+            where :{
+                textoResena: req.query.textoResena,
+                puntaje: req.query.puntaje,
+            }
+            });
 
-        Promise.all([pedidoPelicula])
-            .then(function([pelicula]) {
-                res.render("editarResena", {pelicula:pelicula});
-            })
+        //Promise.all([pedidoResena])
+           // .then(function([Resena]) {
+               // res.render("editarResena", {
+                  //  textoResena: textoResena    ,
+                   // puntaje: puntaje,
+               // });
+          //  })
         
     },
     borrarResena: function(req, res){
-            db.Resena.destroy({
+            DB.Resena.destroy({
                 where: {
-                    id: req.params.id
+                    id: req.params.peliculaId
                 }
             })
             res.redirect("/misResenas");
     },
     confirmUser: function(req, res){
 
+}
 }

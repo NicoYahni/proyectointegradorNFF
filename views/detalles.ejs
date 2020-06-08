@@ -82,11 +82,14 @@
 
 
 </div>
-
-<form action="/detalles"  method="post">
+<div class="formResena">
+<form action="/detalles"  class="reseña" method="post">
   <input type="email" name="email" placeholder="Email">
+  <br>
   <input type="password" name="clave" placeholder="Contraseña">
+  <br>
   <input type="hidden" name="peliculaId" placeholder="" value="<%= peliculaId %> ">
+  <br>
   <select class="" name="puntaje">
     <option value="0">0</option>
     <option value="1">1</option>
@@ -100,10 +103,12 @@
     <option value="9">9</option>
     <option value="10">10</option>
 </select>
+<br>
 <textarea name="textoResena" rows="8" cols="80" placeholder="Ingrese su Reseña"></textarea>
+<br>
 <button type="submit">Enviar</button>
 </form>
-
+</div>
 
 
 

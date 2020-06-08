@@ -31,6 +31,7 @@ router.get("/misResenas", controller.misResenas);
 router.post("/borrarResena", controller.borrarResena);
 
 
+
 // HTTP://localhost:3000/actoresdetalles
 
 

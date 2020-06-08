@@ -19,7 +19,7 @@ li a {
   width: 100%;
 }
 
-}
+
 ul li a{
   font-family: 'Cairo', sans-serif;
   text-transform: uppercase;
@@ -66,11 +66,9 @@ text-transform: uppercase;
   top: 25px;
 }
 
-span.navbar-toggler-icon {
 
-}
 
-}
+
 .footer{
   margin-top: 30px;
 }
@@ -134,3 +132,7 @@ h4{
 }
 h3{
   text-align: center;}
+
+.formResena{
+    text-align: center;
+  }
