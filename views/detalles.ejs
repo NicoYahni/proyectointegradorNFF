@@ -73,6 +73,34 @@
   <div id="movies" class="row"></div>
 
   </div>
+  <div class="formResena">
+    <h3>Ingrese su Reseña:</h3>
+    <form action="/detalles"  method="post">
+      <input type="email" name="email" placeholder="Email">
+      <br>
+      <input type="password" name="clave" placeholder="Contraseña">
+      <br>
+      <input type="hidden" name="peliculaId" placeholder="" value="<%= peliculaId %> ">
+      <br>
+      <select class="" name="puntaje">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <br>
+    <textarea name="textoResena" rows="8" cols="80" placeholder="Ingrese su Reseña"></textarea>
+    <br>
+    <button type="submit">Enviar</button>
+    </form>
+    </div>
   <div class="container">
     <h3>RECOMMENDED</h3>
   <div id="recomenda" class="row"></div>
@@ -83,26 +111,6 @@
 
 </div>
 
-<form action="/detalles"  method="post">
-  <input type="email" name="email" placeholder="Email">
-  <input type="password" name="clave" placeholder="Contraseña">
-  <input type="hidden" name="peliculaId" placeholder="" value="<%= peliculaId %> ">
-  <select class="" name="puntaje">
-    <option value="0">0</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-</select>
-<textarea name="textoResena" rows="8" cols="80" placeholder="Ingrese su Reseña"></textarea>
-<button type="submit">Enviar</button>
-</form>
 
 
 

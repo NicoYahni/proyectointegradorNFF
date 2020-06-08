@@ -26,6 +26,9 @@ router.get("/tiposdegeneros", controller.tiposdegeneros);
 router.get("/userDetail/:id", controller.userDetail);
 router.get("/resenasMejores", controller.resenasMejores);
 router.get("/resenasPeores", controller.resenasPeores);
+router.get("/misResenas", controller.misResenas);
+router.get ('/reviews/delete/:id', controller.deleteReview);
+router.post ('/reviews/delete/:id', controller.confirmDelete);
 
 
 // HTTP://localhost:3000/actoresdetalles

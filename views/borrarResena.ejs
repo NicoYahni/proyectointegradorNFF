@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="formlogin" action="/login/reviews/delete/<%=deleteId %> " method="POST">
+        <h1>Delete</h1>
+            <div class="imgcontainer">
+            </div>
+            <div class="container">
+                <p>Confirm user to erase a review</p>
+                <label for="psw">Password</label>
+                <input type="password" placeholder="Enter password" name="psw" required>
+                <label for="psw">email</label>
+                <input type="email" name="email" required>
+                <button type="submit">Confirm</button>
+            </div>
+            <div class="container" style="background-color: #f1f1f1;">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw"Forgot><a href="#">password?</a></span>
+            </div>
+    </form>
+</body>
+</html>

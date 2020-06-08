@@ -38,7 +38,7 @@ module.exports = {
     },
     validarUsuarioPassword: function (req, res){
    
-      
+        
         moduloLogin.validar(req.body.email,req.body.password) 
                     .then(
                         resultado => {
@@ -49,8 +49,31 @@ module.exports = {
                            }else{
                                console.log('Objeto Usuario:');
                                console.log(resultado.dataValues);
-                               res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto, logeado: true});
+                               if(req.body.fromPage == 'misResenas'){
+                                // DB.resenas.findAll({
+                                //     where:{
+                                //         id: resultado.id
+                                //     }
+                                //    }).then((reviews)=>
+                                //     res.render('misResenas',{
+                                //         nombreCompleto:resultado.dataValues.nombreCompleto,
+                                //         usuario:resultado,
+                                //         reviews:reviews
+                                //     })                               
+                                //    );
+                                res.redirect('/misResenas?id='+resultado.dataValues.id);
+                                
+                               }else{
+
+                                res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto, logeado: true}); 
+                               }
+                               
+
+                                ;
+                              
+
                            }
+
 
                         }
                     );
@@ -240,7 +263,40 @@ module.exports = {
     resenasPeores: function(req, res) {
         res.render('resenasPeores')
     },
-
-  
+    misResenas: function(req, res) {
+        DB.usuarios.findByPk(req.query.id)
+                .then(function(usuario){
+                    DB.resenas.findAll({
+                        where: {
+                            usuarioId: usuario.id
+                        }
+                    })
+                    .then(function(reviews){
+                        res.render("misResenas", {
+                            usuario: usuario,
+                            reviews: reviews
+                        })
+                    })
+                })
+    },
+    deleteReview: function (req,res) {
+        res.render ('loginForReviewDelete', {deleteId: req.params.id });
+    
+    },
+    confirmDelete: function (req,res) {
+        login.validar (req.body.email, req.body.psw)
+        .then (resultado => {
+            if (resultado !=null) {
+                DB.Resena.destroy({
+                    where: {
+                        id: req.params.id,
+                    }
+                })
+                res.redirect ('/login/reviews/' + resultado.id);
+            } else{
+                res.redirect ('/login/reviews/delete/' + req.params.id);
+            }
+        })
+    },
 
 }
