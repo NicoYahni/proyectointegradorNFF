@@ -1,5 +1,5 @@
 let DB = require('../database/models');
-let OP = DB.Sequelize.Op;
+let op = DB.Sequelize.Op;
 let bcryptjs = require('bcryptjs')
 let moduloLogin = require('../modulo-login');
 
@@ -49,7 +49,15 @@ module.exports = {
                            }else{
                                console.log('Objeto Usuario:');
                                console.log(resultado.dataValues);
-                               res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto, logeado: true});
+                               
+                               DB.reviews.findAll({
+                                where:{
+                                    idUser: resultado.id
+                                }
+                               }
+                               .then(function(reviews){
+                                res.render('index',{nombreCompleto:resultado.dataValues.nombreCompleto});
+                               }))
                            }
 
                         }
@@ -240,7 +248,39 @@ module.exports = {
     resenasPeores: function(req, res) {
         res.render('resenasPeores')
     },
+    misResenas: function(req, res) {
+        DB.usuarios.findByPk(req.params.id)
+                .then(function(usuario){
+                    DB.resenas.findAll({
+                        where: {
+                            usuarioId: usuario.id
+                        }
+                    })
+                    .then(function(reviews){
+                        res.render("misResenas", {
+                            usuario: usuario,
+                            reviews: reviews
+                        })
+                    })
+                })
+    },
+    editarResena: function(req, res) {
+        let pedidoPelicula = db.Pelicula.findByPk(req.params.id);
 
-  
+        Promise.all([pedidoPelicula])
+            .then(function([pelicula]) {
+                res.render("editarResena", {pelicula:pelicula});
+            })
+        
+    },
+    borrarResena: function(req, res){
+            db.Resena.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.redirect("/misResenas");
+    },
+    confirmUser: function(req, res){
 
 }

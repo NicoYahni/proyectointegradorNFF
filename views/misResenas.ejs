@@ -67,7 +67,29 @@
         </form>
       </li>
     </ul>
+    <h1>Perfil de: <%= usuario.nombreCompleto %></h1>
+    <ul>
+        <li>Email:<%= usuario.email %></li>
+        <li>Fecha de Nacimiento:<%= usuario.fechaNacimiento %></li>
+    </ul>
+    <h2>Lista de Reseñas:</h2>
+    <hr>
+    <% if (reviews.length > 0) { %>
+        <% for(let i=0; i < reviews.length; i++) { %>
+        <h3>Reseña de la pelicula <%= reviews[i].peliculaId%></h3>
+        <p><%= reviews[i].textoResena %></p>
+        <form action="" method="POST">
+            <button type="submit">Borrar</button>
+        </form>
+        <a href="/editarResena">
+            <button>Editar</button>
+        </a>
+        <hr>
 
+        <% } %>
+        <% } else { %>
+            <p>No hemos encontrado reseñas escritas por este usuario</p>
+            <% } %>
 
 
 
@@ -87,7 +109,7 @@
 
 </html>
 </script>
-<script type="text/javascript" src="/javascript/js/js_paginas/misResenas.js"></script>
+
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
