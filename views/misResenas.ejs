@@ -79,11 +79,16 @@
         <% for(let i=0; i < reviews.length; i++) { %>
         <h3>Reseña de la pelicula <%= reviews[i].peliculaId%></h3>
         <p><%= reviews[i].textoResena %></p>
-        <form action="" method="GET">
-            <button type="submit">Borrar</button>
-        </form>
-        <a href="">
-            <button>Editar</button>
+        
+        <form action="/misResenas/borrar" method="POST">
+          <input type="hidden" name="idResena" value="<%=reviews[i].id%>"/>
+          <input type="hidden" name="idUsuario" value="<%=usuario.id%>"/>
+          <button type="submit"> Borrar </button> </form>
+       
+          <!-- <a href="/misResenas/borrar/<%=reviews[i].id%>" >Borrar</a> -->
+            
+            <a href="/misResenas/editar/<%=reviews[i].id%>">
+            Editar
         </a>
         <hr>
 

@@ -278,26 +278,65 @@ module.exports = {
                         })
                     })
                 })
-    },
-    deleteReview: function (req,res) {
-        res.render ('loginForReviewDelete', {deleteId: req.params.id });
     
     },
-    confirmDelete: function (req,res) {
-        login.validar (req.body.email, req.body.psw)
-        .then (resultado => {
-            if (resultado !=null) {
-                DB.Resena.destroy({
-                    where: {
-                        id: req.params.id,
-                    }
-                })
-                res.redirect ('/login/reviews/' + resultado.id);
-            } else{
-                res.redirect ('/login/reviews/delete/' + req.params.id);
+    editarResena: function(req,res){
+        DB.resenas.findOne({
+            where:{
+                id:req.params.id
+            }
+        }).then(resena =>
+            res.render("editarResena",{
+                resena : resena
+
+            })
+            )
+        
+    },
+    modificarResena: function (req,res){
+        DB.resenas.update(
+            {
+                textoResena:req.body.textoResena, 
+                puntaje:req.body.puntaje
+            },{
+                where:{
+                    id:req.body.idResena
+                }
+            })
+
+    },
+    borrar: function(req, res) {
+        console.log(req.params);
+        DB.resenas.destroy({
+            where: {
+                id : req.body.idResena
             }
         })
+        .then(resultado => {
+            DB.resenas.findAll({
+                where: {
+                    usuarioId: req.body.idUsuario
+                }
+            })
+            .then(function(reviews){
+                DB.usuarios.findOne({
+                    where: {
+                        id: req.body.idUsuario
+                    }
+                })
+                .then(function(user){
+                    res.render("misResenas", {
+                        usuario: user,
+                        reviews: reviews
+                    })
+                })
+                
+                
+            })
+        })
+        //res.redirect("/misResenas")
     },
+
 
 }
 

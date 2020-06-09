@@ -7,9 +7,11 @@
 </head>
 <body>
     <h1>Editar Resena</h1>
-    <form action="/misResenas/editar">
-        <input type="text" value="<%=resena.textoResena%>">
-        <input type="text" value="<%=resena.puntaje%>">
+    <form action="/misResenas/modificarResena" method="POST">
+        <input type="hidden" name="idResena" value="<%=resena.id%>">
+        <input type="text" name="textoResena" value="<%=resena.textoResena%>">
+        <input type="text" name="puntaje" value="<%=resena.puntaje%>">
+        <button type="submit">Guardar</button>
     </form>
 </body>
 </html>

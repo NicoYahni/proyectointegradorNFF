@@ -27,8 +27,9 @@ router.get("/userDetail/:id", controller.userDetail);
 router.get("/resenasMejores", controller.resenasMejores);
 router.get("/resenasPeores", controller.resenasPeores);
 router.get("/misResenas", controller.misResenas);
-router.get ('/reviews/delete/:id', controller.deleteReview);
-router.post ('/reviews/delete/:id', controller.confirmDelete);
+router.post("/misResenas/borrar", controller.borrar);
+router.get("/misResenas/editar/:id", controller.editarResena);
+router.post("/misResenas/modificarResena", controller.modificarResena);
 
 
 
