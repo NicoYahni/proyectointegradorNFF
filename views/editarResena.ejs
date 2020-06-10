@@ -4,14 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/index.css">
+   
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrapnuevo.css">
+    <link href="https://fonts.googleapis.com/css?family=Cairo&display=swap" rel="stylesheet">
 </head>
 <body>
     <h1>Editar Resena</h1>
-    <form action="/misResenas/modificarResena" method="POST">
+    <form  action="/misResenas/modificarResena" method="POST">
         <input type="hidden" name="idResena" value="<%=resena.id%>">
-        <input type="text" name="textoResena" value="<%=resena.textoResena%>">
-        <input type="text" name="puntaje" value="<%=resena.puntaje%>">
-        <button type="submit">Guardar</button>
+        <input type="text" class="textoResena" name="textoResena" value="<%=resena.textoResena%>">
+        <input type="text" class="puntajeResena" name="puntaje" value="<%=resena.puntaje%>">
+        <button class="submitResena" type="submit">Guardar</button>
     </form>
+
+    <footer class="footerEditar">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col"><img src="/images/download.png" alt="logo" class="logo" style  ></th>
+              <th scope="col">Federico Davola</th>
+              <th scope="col">Nicolas Yahni</th>
+              <th scope="col">Felix Galperin</th>
+            </tr>
+          </thead>
+      
+      </footer>
 </body>
 </html>
